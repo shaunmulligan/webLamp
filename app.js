@@ -3,7 +3,10 @@ var express = require('express');
 var path = require('path');
 var querystring = require("querystring");
 var url = require('url');
-var gpio = require('pi-gpio');
+//var gpio = require('pi-gpio');
+var pin17 = require("pi-pins").connect(17);
+
+pin17.mode("out");
 
 // Create app
 var app = express();
@@ -27,18 +30,20 @@ app.get("/send", function(request, response){
 
     // Apply command
     if (queryData.state == 'on') {
-      gpio.open(11, "output", function(err) {     
-        gpio.write(11, 1, function() {  
-            gpio.close(11);                   
-        });
-    });
+        // gpio.open(11, "output", function(err) {     
+        //     gpio.write(11, 1, function() {  
+        //         gpio.close(11);                   
+        //     });
+        // });
+        pin17.value(true); console.log("lamp: ON");
     }
     if (queryData.state == 'off') {
-    gpio.open(11, "output", function(err) {     
-        gpio.write(11, 0, function() {  
-            gpio.close(11);                   
-        });
-    });
+    // gpio.open(11, "output", function(err) {     
+    //     gpio.write(11, 0, function() {  
+    //         gpio.close(11);                   
+    //     });
+    // });
+        pin17.value(false); console.log("lamp: OFF");
     } 
     
     // Answer
