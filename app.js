@@ -15,7 +15,7 @@ app.use(express.static(path.join(__dirname, 'views')));
 
 // Serve files
 app.get('/interface', function(request, response){
-  response.sendFile('views/interface.html')
+  response.sendfile('views/interface.html')
 });
 
 // Send commands to PI
