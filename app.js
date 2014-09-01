@@ -15,7 +15,7 @@ app.use(express.static(path.join(__dirname, 'views')));
 
 // Serve files
 app.get('/interface', function(request, response){
-  response.sendfile('views/interface.html')
+  response.sendFile('views/interface.html')
 });
 
 // Send commands to PI
@@ -27,16 +27,16 @@ app.get("/send", function(request, response){
 
     // Apply command
     if (queryData.state == 'on') {
-      gpio.open(17, "output", function(err) {     
-        gpio.write(17, 1, function() {  
-            gpio.close(17);                   
+      gpio.open(11, "output", function(err) {     
+        gpio.write(11, 1, function() {  
+            gpio.close(11);                   
         });
     });
     }
     if (queryData.state == 'off') {
-    gpio.open(17, "output", function(err) {     
-        gpio.write(17, 0, function() {  
-            gpio.close(17);                   
+    gpio.open(11, "output", function(err) {     
+        gpio.write(11, 0, function() {  
+            gpio.close(11);                   
         });
     });
     } 
