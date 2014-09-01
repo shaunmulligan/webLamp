@@ -1,0 +1,13 @@
+{
+  "name": "webLamp",
+  "version": "0.0.0",
+  "dependencies": {
+    "express": "~4.8.7 ",
+    "pi-gpio": "~0.0.6"
+    
+  },
+  "scripts": {
+    "start": "node app.js",
+    "preinstall": "bash deps.sh"
+  }
+}
