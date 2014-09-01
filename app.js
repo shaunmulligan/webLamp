@@ -7,7 +7,7 @@ var gpio = require('pi-gpio');
 
 // Create app
 var app = express();
-var port = 3700;
+var port = 8000;
 
 // Set views
 app.use(express.static(path.join(__dirname, 'public')));
@@ -27,16 +27,16 @@ app.get("/send", function(request, response){
 
     // Apply command
     if (queryData.state == 'on') {
-      gpio.open(7, "output", function(err) {     
-        gpio.write(7, 1, function() {  
-            gpio.close(7);                   
+      gpio.open(17, "output", function(err) {     
+        gpio.write(17, 1, function() {  
+            gpio.close(17);                   
         });
     });
     }
     if (queryData.state == 'off') {
-    gpio.open(7, "output", function(err) {     
-        gpio.write(7, 0, function() {  
-            gpio.close(7);                   
+    gpio.open(17, "output", function(err) {     
+        gpio.write(17, 0, function() {  
+            gpio.close(17);                   
         });
     });
     } 
